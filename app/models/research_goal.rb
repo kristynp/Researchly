@@ -1,0 +1,2 @@
+class ResearchGoal < ApplicationRecord
+end
