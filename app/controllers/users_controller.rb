@@ -4,9 +4,25 @@ class UsersController < ApplicationController
   end
 
   def create
-    binding.pry 
+    @user = User.new(user_params)
+    if @user.save 
+      #log them in 
+      #redirect to show page 
+      session[:user_id] = @user.id
+      redirect_to @user
+    else 
+      render :new
+    end 
   end
 
   def show 
+    @user = User.find_by(id: params[:id])
   end
+
+  private 
+  
+  def user_params
+    params.require(:user).permit(:user_name, :password) 
+  end
+
 end

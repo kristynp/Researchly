@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  root 'sessions#home'
 
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
+
+  #login route 
+
+  #logout route
+  delete '/logout'
 
   resources :users 
   resources :research_goals 
