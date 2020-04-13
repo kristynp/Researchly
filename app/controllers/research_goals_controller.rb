@@ -5,7 +5,12 @@ class ResearchGoalsController < ApplicationController
   end
 
   def create
-    binding.pry 
+    @research_goal = current_user.research_goals.build(research_goal_params)
+    if @research_goal.save 
+      redirect_to research_goals_path
+    else 
+      render :new 
+    end 
   end
 
   private 
