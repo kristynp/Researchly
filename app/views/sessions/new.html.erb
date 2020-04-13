@@ -1,5 +1,7 @@
 <h1>Log In</h1>
 
+  <%= flash[:message] if flash[:message]%>
+
 <%= form_for :user do |f| %>
   <%= f.label :user_name %>
   <%= f.text_field :user_name %>
