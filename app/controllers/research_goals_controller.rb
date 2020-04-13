@@ -1,0 +1,2 @@
+class ResearchGoalsController < ApplicationController 
+end
