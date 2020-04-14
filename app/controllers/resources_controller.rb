@@ -1,7 +1,7 @@
 class ResourcesController < ApplicationController
   before_action :redirect_if_not_logged_in 
 
-  def index 
+  def index
     if params[:research_goal_id] && @research_goal = ResearchGoal.find_by_id(params[:research_goal_id]) 
       @resources = @research_goal.resources
     else
