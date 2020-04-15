@@ -2,7 +2,7 @@
 
 <ul>
   <% @research_goals.each do |research_goal| %>
-    <li><%= research_goal.name%> -- <%= research_goal.description %></li>
+    <li><%= link_to research_goal.name, research_goal%> -- <%= research_goal.description %></li>
   <%end%>
 
 </ul>

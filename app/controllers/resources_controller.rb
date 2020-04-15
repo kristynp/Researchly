@@ -5,7 +5,7 @@ class ResourcesController < ApplicationController
     if params[:research_goal_id] && @research_goal = ResearchGoal.find_by_id(params[:research_goal_id]) 
       @resources = @research_goal.resources
     else
-      flash[:message] = "That research goal does not exist"
+      @error = "That research goal does not exist" if params[:research_goal_id]
       @resources = Resource.all
     end
   end

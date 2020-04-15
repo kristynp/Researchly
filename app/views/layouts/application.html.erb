@@ -21,7 +21,11 @@
       <% end %>
     </div>
 
-    <div><%= flash[:message] if flash[:message]%></div>
+    <div>
+      <%= flash[:message] if flash[:message]%>
+      <%= @error %>
+    </div>
+    
 
     <%= yield %>
 
