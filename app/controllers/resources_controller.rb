@@ -15,7 +15,7 @@ class ResourcesController < ApplicationController
  
     if params[:research_goal_id] && @research_goal = ResearchGoal.find_by_id(params[:research_goal_id]) 
       @research_goal = ResearchGoal.find_by_id(params[:research_goal_id])  
-      @resource = @research_goal.resources.build(resource_params)
+      @resource = @research_goal.resources.build
     else
       @error = "That research goal does not exist" if params[:research_goal_id]
       @resource = Resource.new

@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_10_222525) do
-
-  create_table "journals", force: :cascade do |t|
-    t.string "name"
-    t.string "website"
-    t.boolean "open_source"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2020_04_16_170148) do
 
   create_table "research_goals", force: :cascade do |t|
     t.string "name"
@@ -32,7 +24,6 @@ ActiveRecord::Schema.define(version: 2020_04_10_222525) do
     t.string "title"
     t.string "key_topics"
     t.integer "research_goal_id"
-    t.integer "journal_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
