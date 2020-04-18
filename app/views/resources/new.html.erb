@@ -1,4 +1,4 @@
-<% if @resource.research_goal %>
+<% if @research_goal %>
   <h1>Add A New Resource for <%= @resource.title %> </h1>
 <% else %>
   <h1>Add A New Resource</h1>
@@ -17,8 +17,7 @@
   </div>
 <% end %>
 
-
-<%= form_for ([@resource.research_goal, @resource]) do |f| %>
+<%= form_for ([@research_goal, @resource]) do |f| %>
   
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -26,6 +25,7 @@
     <%= f.label :key_topics %>
     <%= f.text_field :key_topics %>
     <br>
+    <%= f.hidden_field :research_goal_id %>
   
   <%= f.submit "Add Resource" %>
    

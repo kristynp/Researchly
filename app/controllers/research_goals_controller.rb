@@ -5,11 +5,17 @@ class ResearchGoalsController < ApplicationController
   end
 
   def index
-    @research_goals = ResearchGoal.all  
+    if params[:user_id] && @user = User.find_by_id(params[:user_id])
+      @research_goals = @user.research_goals 
+    else
+      @error = "That user doesn't exist." if params[:user_id] 
+      @research_goals = ResearchGoal.all 
+    end
   end
 
   def show 
     @research_goal = ResearchGoal.find_by_id(params[:id])
+    redirect_to research_goals_path if !@research_goal
   end
 
   def create

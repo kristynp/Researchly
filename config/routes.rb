@@ -11,14 +11,16 @@ Rails.application.routes.draw do
   #logout route
   delete '/logout' => 'sessions#destroy'
 
-  resources :users do
-    resources :research_goals, only: [:new, :create, :index] 
-  end
   resources :research_goals do 
     resources :resources, only: [:new, :create, :index]
   end 
+  
   resources :resources 
-  resources :journals 
+
+  resources :users do
+    resources :research_goals, only: [:new, :create, :index] 
+  end
+ 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
