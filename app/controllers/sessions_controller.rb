@@ -18,8 +18,16 @@ class SessionsController < ApplicationController
 
   def omnilogin
     #find_or_create a user using the attributes in auth
-    @user = User.find_or_create_by(:email)
-    binding.pry
+    @user = User.find_or_create_by(email: auth["info"]["email"]) do |user|
+      user.password = SecureRandom.hex(12)
+    end
+
+    if @user.save 
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
+    else
+      redirect_to '/' 
+    end
   end
 
   def auth
