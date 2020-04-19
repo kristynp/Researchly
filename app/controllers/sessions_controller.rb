@@ -15,4 +15,13 @@ class SessionsController < ApplicationController
       redirect_to "/login"
     end
   end
+
+  def omnilogin
+    binding.pry
+  end
+
+  def auth
+    request.env['omniauth.auth'] 
+  end
+  
 end 

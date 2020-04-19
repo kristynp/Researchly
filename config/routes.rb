@@ -11,10 +11,13 @@ Rails.application.routes.draw do
   #logout route
   delete '/logout' => 'sessions#destroy'
 
+  # Routes for Google authentication
+  get '/auth/:provider/callback' => 'sessions#omnilogin'
+
   resources :research_goals do 
     resources :resources, only: [:new, :create, :index]
   end 
-  
+
   resources :resources 
 
   resources :users do
