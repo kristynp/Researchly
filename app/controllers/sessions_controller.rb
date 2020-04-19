@@ -17,6 +17,8 @@ class SessionsController < ApplicationController
   end
 
   def omnilogin
+    #find_or_create a user using the attributes in auth
+    @user = User.find_or_create_by(:email)
     binding.pry
   end
 
