@@ -19,12 +19,11 @@ Rails.application.routes.draw do
     resources :resources, only: [:new, :create, :index]
   end 
 
-  resources :resources 
-
   resources :users do
     resources :research_goals, only: [:new, :create, :index] 
   end
   
+  resources :resources
   resources :journals
  
 
