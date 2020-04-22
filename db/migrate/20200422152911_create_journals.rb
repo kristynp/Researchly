@@ -4,8 +4,6 @@ class CreateJournals < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :website
       t.boolean :open_source
-
-      t.timestamps
     end
   end
 end

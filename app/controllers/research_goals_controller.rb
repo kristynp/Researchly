@@ -6,10 +6,10 @@ class ResearchGoalsController < ApplicationController
 
   def index
     if params[:user_id] && @user = User.find_by_id(params[:user_id])
-      @research_goals = @user.research_goals 
+      @research_goals = @user.research_goals.date_created
     else
       @error = "That user doesn't exist." if params[:user_id] 
-      @research_goals = ResearchGoal.all 
+      @research_goals = ResearchGoal.date_created 
     end
   end
 

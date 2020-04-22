@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'sessions#home'
 
   get '/signup' => 'users#new'
@@ -23,6 +24,8 @@ Rails.application.routes.draw do
   resources :users do
     resources :research_goals, only: [:new, :create, :index] 
   end
+  
+  resources :journals
  
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
