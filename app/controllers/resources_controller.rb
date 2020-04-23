@@ -27,6 +27,8 @@ class ResourcesController < ApplicationController
   def create
     @research_goal = ResearchGoal.find_by_id(params[:research_goal_id])  
     @resource = @research_goal.resources.build(resource_params)
+    binding.pry
+
     if @resource.journal_id == 0 && params[:resource][:journal_id]
       journal = Journal.find_or_create_by(name: params[:resource][:journal_id])
       journal.save
@@ -50,7 +52,17 @@ class ResourcesController < ApplicationController
   private 
   
   def resource_params
-    params.require(:resource).permit(:title, :key_topics, :research_goal_id, :journal_id) 
+    params.require(:resource).permit(
+      :title, 
+      :key_topics, 
+      :research_goal_id, 
+      :journal_id, 
+      journal_attributes: [
+        :name, 
+        :website, 
+        :open_source
+      ]
+    ) 
   end
 
 end
