@@ -1,1 +1,12 @@
-Resource Show Page
+<h1><%= @resource.title %></h1>
+<p>Paper published at <%= link_to @resource.journal.name, @resource.journal.website %></p>
+
+<% if !@resource.website == nil %>
+  <p>Find resource <%= link_to "Here", @resource.website %></p>
+<% end %>
+
+<p>Part of the <%= @resource.research_goal.name %> research goal</p>
+<p>Key topics: <%=@resource.key_topics%></p>
+
+<h2>Notes</h2>
+<%= @resource.notes %>

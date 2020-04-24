@@ -26,6 +26,14 @@
     <%= f.label :key_topics %>
     <%= f.text_field :key_topics %><br><br>
 
+    <%= f.label :website %>
+    <%= f.text_field :website %>
+    <br>
+
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+    <br>
+
     <%= f.fields_for :journal do |journal_builder| %>
       <fieldset>
         <legend>What does this do?</legend>

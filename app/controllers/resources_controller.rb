@@ -48,7 +48,14 @@ class ResourcesController < ApplicationController
   end
 
   def edit
-    @resource = Resource.find_by(id: params[:id]) 
+    @resource = Resource.find_by(id: params[:id])
+    @current_user = current_user
+  end
+
+  def update
+    @resource = Resource.find_by(id: params[:id])
+    @resource.update(resource_params)
+    redirect_to @resource
   end
 
   private 
@@ -58,7 +65,9 @@ class ResourcesController < ApplicationController
       :title, 
       :key_topics, 
       :research_goal_id, 
-      :journal_id, 
+      :journal_id,
+      :website,
+      :notes, 
       journal_attributes: [
         :name, 
         :website, 
