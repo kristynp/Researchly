@@ -1,0 +1,8 @@
+<h1>All Journals</h1>
+<%= link_to "Add Journal", new_journal_path%>
+
+<ol>
+<% @journals.each do |journal| %>
+  <li><%= link_to journal.name, journal.website %></li>
+<% end %>
+</ol>

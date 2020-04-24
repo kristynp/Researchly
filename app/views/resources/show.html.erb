@@ -1,8 +1,9 @@
 <h1><%= @resource.title %></h1>
-<p>Paper published at <%= link_to @resource.journal.name, @resource.journal.website %></p>
+<%= link_to 'Edit this resource', edit_resource_path(@resource) %> |
+Paper published at <%= link_to @resource.journal.name, @resource.journal.website %> 
 
 <% if !@resource.website == nil %>
-  <p>Find resource <%= link_to "Here", @resource.website %></p>
+   | Find resource <%= link_to "Here", @resource.website %>
 <% end %>
 
 <p>Part of the <%= @resource.research_goal.name %> research goal</p>

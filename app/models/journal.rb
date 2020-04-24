@@ -5,4 +5,5 @@ class Journal < ApplicationRecord
   validates :name, presence: true
   validates :website, presence: true
   validates :website, url: true
+
 end

@@ -1,0 +1,57 @@
+<% if @research_goal %>
+  <h1>Edit Resource for the <%= @research_goal.name %> goal </h1>
+<% else %>
+  <h1>Edit Resource</h1>
+<% end %>
+
+<%# move this to a partial %>
+<% if @resource.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
+ 
+    <ul>
+    <% @resource.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for ([@research_goal, @resource]) do |f| %>
+  
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <br>
+
+    <%= f.label :key_topics %>
+    <%= f.text_field :key_topics %><br><br>
+
+    <%= f.label :website %>
+    <%= f.text_field :website %>
+    <br>
+
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+    <br><br>
+
+    <%= f.fields_for :journal do |journal_builder| %>
+      <fieldset>
+        <legend>Journal</legend>
+        <%= journal_builder.label :name %>
+        <%= journal_builder.text_field :name %><br>
+
+        <%= journal_builder.label :website %>
+        <%= journal_builder.text_field :website %><br>
+
+        <%= journal_builder.label :open_source %>
+        <%= journal_builder.select :open_source, [['Yes', true], ['No', false], ], { :include_blank => true } %><br>
+      </fieldset> 
+    <% end %>
+
+
+    <%= f.hidden_field :research_goal_id %>
+    <br>
+  
+  <%= f.submit "Edit Resource" %>
+   
+<% end %>

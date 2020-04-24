@@ -1,5 +1,5 @@
 <% if @research_goal %>
-  <h1>Add A New Resource for the <%= @research_goal.name %> goal </h1>
+  <h1>Add A New Resource for the <%= @research_goal.name %> </h1>
 <% else %>
   <h1>Add A New Resource</h1>
 <% end %>
@@ -26,28 +26,10 @@
     <%= f.label :key_topics %>
     <%= f.text_field :key_topics %><br><br>
 
-    <%= f.label :website %>
-    <%= f.text_field :website %>
+    <%= f.label :journal_id %>
     <br>
-
-    <%= f.label :notes %>
-    <%= f.text_area :notes %>
-    <br>
-
-    <%= f.fields_for :journal do |journal_builder| %>
-      <fieldset>
-        <legend>What does this do?</legend>
-        <%= journal_builder.label :name %>
-        <%= journal_builder.text_field :name %><br>
-
-        <%= journal_builder.label :website %>
-        <%= journal_builder.text_field :website %><br>
-
-        <%= journal_builder.label :open_source %>
-        <%= journal_builder.select :open_source, [['Yes', true], ['No', false], ], { :include_blank => true } %><br>
-      </fieldset> 
-    <% end %>
-
+    <label for="journal_id">Choose existing journal: </label>
+    <%= f.collection_select :journal_id, Journal.all, :id, :name, :prompt => '- Select -' %>
 
     <%= f.hidden_field :research_goal_id %>
     <br>

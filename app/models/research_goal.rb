@@ -7,7 +7,6 @@ class ResearchGoal < ApplicationRecord
   validates :description, presence: true
 
   scope :date_created, -> { order(created_at: :desc) }
-  scope :most_resources, -> {joins(:resources).group(:id).order('count(resources.id) desc')}
 
   def resource_count
     self.resources.count 
