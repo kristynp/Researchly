@@ -4,6 +4,9 @@ class ResearchGoal < ApplicationRecord
   has_many :research_articles
   has_many :journals, through: :resources
 
+  validates :title, presence: true
+  validates :description, presence: true
+
   scope :date_created, -> { order(created_at: :desc) }
   scope :most_resources, -> {joins(:resources).group(:id).order('count(resources.id) desc')}
 

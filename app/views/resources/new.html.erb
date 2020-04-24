@@ -26,25 +26,18 @@
     <%= f.label :key_topics %>
     <%= f.text_field :key_topics %><br><br>
 
-    <%= f.label :journal_id %>
-    <br>
-    <label for="journal_id">Choose existing journal: </label>
-    <%= f.collection_select :journal_id, Journal.all, :id, :name, :prompt => '- Select -' %>
-    <p> --OR-- </p>
+    <%= f.fields_for :journal do |journal_builder| %>
+      <fieldset>
+        <legend>What does this do?</legend>
+        <%= journal_builder.label :name %>
+        <%= journal_builder.text_field :name %><br>
 
-    <p>Add New Journal</p>
-    
-    <%= f.fields_for :journals do |journal| %>
+        <%= journal_builder.label :website %>
+        <%= journal_builder.text_field :website %><br>
 
-      <%= journal.label :name %>
-      <%= journal.text_field :name %><br>
-
-      <%= journal.label :website %>
-      <%= journal.text_field :website %><br>
-
-      <%= journal.label :open_source %>
-      <%= journal.select :open_source, [['Yes', true], ['No', false], ], { :include_blank => true } %><br>
-
+        <%= journal_builder.label :open_source %>
+        <%= journal_builder.select :open_source, [['Yes', true], ['No', false], ], { :include_blank => true } %><br>
+      </fieldset> 
     <% end %>
 
 

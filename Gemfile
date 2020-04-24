@@ -27,6 +27,9 @@ gem 'pry'
 gem 'omniauth'
 gem 'dotenv-rails'
 gem 'omniauth-google-oauth2'
+#allows login with google
+gem 'validate_url'
+#validates website links
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
