@@ -238,6 +238,9 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2019.3)
       tzinfo (>= 1.0.0)
+    validate_url (1.0.8)
+      activemodel (>= 3.0.0)
+      public_suffix
     web-console (4.0.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -287,6 +290,7 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
   turbolinks (~> 5)
   tzinfo-data
+  validate_url
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)

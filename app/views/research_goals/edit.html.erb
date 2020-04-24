@@ -1,0 +1,21 @@
+<h1>Edit <%= @research_goal.name %> research goal</h1>
+
+<p><%= @research_goal.description %></p>
+
+<h2>Notes</h2>
+<%= @research_goal.notes %>
+
+<%= form_for(@research_goal) do |f| %>
+  
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %><br>
+
+  <%= f.label :notes %>
+  <%= f.text_field :notes %><br>
+
+  <%= f.submit %>
+
+<% end %>

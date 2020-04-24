@@ -1,4 +1,10 @@
 <h1> Research Goal: <%= @research_goal.name %> </h1>
 
-<p> <%= link_to 'See all resources', research_goal_resources_path(@research_goal) %> </p>
-<p> <%= link_to 'Add new resource', new_research_goal_resource_path(@research_goal) %> </p>
+<%= link_to 'See resources for this goal', research_goal_resources_path(@research_goal) %> |
+<%= link_to 'Edit this goal', edit_research_goal_path(@research_goal) %> |
+<%= link_to 'Add new resource', new_research_goal_resource_path(@research_goal) %>
+
+<p><%= @research_goal.description %></p>
+
+<h2>Notes</h2>
+<%= @research_goal.notes %>

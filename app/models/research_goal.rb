@@ -1,10 +1,9 @@
 class ResearchGoal < ApplicationRecord
   belongs_to :user
   has_many :resources
-  has_many :research_articles
   has_many :journals, through: :resources
 
-  validates :title, presence: true
+  validates :name, presence: true
   validates :description, presence: true
 
   scope :date_created, -> { order(created_at: :desc) }

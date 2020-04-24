@@ -1,9 +1,5 @@
 class ResearchGoalsController < ApplicationController 
   
-  def new 
-    @research_goal = ResearchGoal.new 
-  end
-
   def index
     if params[:user_id] && @user = User.find_by_id(params[:user_id])
       @research_goals = @user.research_goals.most_resources
@@ -12,10 +8,9 @@ class ResearchGoalsController < ApplicationController
       @research_goals = ResearchGoal.most_resources 
     end
   end
-
-  def show 
-    @research_goal = ResearchGoal.find_by_id(params[:id])
-    redirect_to research_goals_path if !@research_goal
+  
+  def new 
+    @research_goal = ResearchGoal.new 
   end
 
   def create
@@ -27,10 +22,26 @@ class ResearchGoalsController < ApplicationController
     end 
   end
 
+  def show 
+    @research_goal = ResearchGoal.find_by_id(params[:id])
+    redirect_to research_goals_path if !@research_goal
+  end
+
+  def edit
+    @research_goal = ResearchGoal.find_by(id: params[:id])
+    @current_user = current_user
+  end
+
+  def update
+    @research_goal = ResearchGoal.find_by(id: params[:id])
+    @research_goal.update(research_goal_params)
+    redirect_to @research_goal
+  end
+
   private 
 
   def research_goal_params
-    params.require(:research_goal).permit(:name, :description) 
+    params.require(:research_goal).permit(:name, :description, :notes) 
   end
 
 end
