@@ -6,8 +6,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save 
-      #log them in 
-      #redirect to show page 
       session[:user_id] = @user.id
       redirect_to @user
     else 

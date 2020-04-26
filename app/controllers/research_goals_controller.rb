@@ -34,8 +34,11 @@ class ResearchGoalsController < ApplicationController
 
   def update
     @research_goal = ResearchGoal.find_by(id: params[:id])
-    @research_goal.update(research_goal_params)
-    redirect_to @research_goal
+    if @research_goal.update(research_goal_params)
+      redirect_to @research_goal
+    else
+      render :edit
+    end
   end
 
   private 

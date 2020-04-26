@@ -1,5 +1,5 @@
-Resources index
+<h1>Resources</h1>
 
 <% @resources.all.each do |resource| %>
-  <li><%= link_to resource.title, resource_path(resource) %></li>
+  <li><%= link_to resource.title, resource_path(resource) %> -- <%= resource.key_topics %></li>
 <% end %>

@@ -26,12 +26,14 @@ class ResourcesController < ApplicationController
   end
 
   def create
-    @research_goal = ResearchGoal.find_by_id(params[:research_goal_id])  
-    @resource = @research_goal.resources.build(resource_params)
-
-    #binding.pry
+    @research_goal = ResearchGoal.find_by_id(params[:research_goal_id])
+    if @research_goal  
+      @resource = @research_goal.resources.build(resource_params)
+    else
+      @error = "Please create a new resource from the research goal it will be added to."
+      redirect_to research_goals_path
+    end
     if @resource.save
-
       redirect_to resources_path 
     else
       render :new
@@ -49,26 +51,17 @@ class ResourcesController < ApplicationController
 
   def update
     @resource = Resource.find_by(id: params[:id])
-    @resource.update(resource_params)
-    redirect_to @resource
+    if @resource.update(resource_params)
+      redirect_to @resource
+    else 
+      render :edit 
+    end
   end
 
   private 
   
   def resource_params
-    params.require(:resource).permit(
-      :title, 
-      :key_topics, 
-      :research_goal_id, 
-      :journal_id,
-      :website,
-      :notes, 
-      journal_attributes: [
-        :name, 
-        :website, 
-        :open_source
-      ]
-    ) 
+    params.require(:resource).permit(:title, :key_topics, :research_goal_id, :journal_id, :website, :notes) 
   end
 
 end
