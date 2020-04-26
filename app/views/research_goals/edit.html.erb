@@ -1,5 +1,7 @@
 <h1>Edit <%= @research_goal.name %> research goal</h1>
 
+<%= render '/errors/error', object: @research_goal %>
+
 <%= render 'display'%>
 
 <%= form_for(@research_goal) do |f| %>

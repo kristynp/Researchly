@@ -1,6 +1,7 @@
 <h1>Edit <%= @journal.name %></h1>
 <p>Website: <%= @journal.website %></p>
 
+<%= render '/errors/error', object: @journal %>
 
 <%= form_for @journal do |f| %>
   <%= render 'form', f: f %>
