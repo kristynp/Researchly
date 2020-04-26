@@ -1,5 +1,20 @@
 <h1>Create A New Research Goal</h1>
 
+<% if @research_goal.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@research_goal.errors.count, "error") %>
+      prohibited this research goal from being saved:
+    </h2>
+ 
+    <ul>
+    <% @research_goal.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for(@research_goal) do |f| %>
   
   <%= f.label :name %>
