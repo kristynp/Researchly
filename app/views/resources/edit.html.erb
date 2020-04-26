@@ -17,6 +17,8 @@
   </div>
 <% end %>
 
+<%= render 'display'%>
+
 <%= form_for ([@research_goal, @resource]) do |f| %>
     <%= render 'form', f: f %>  
 <% end %>
