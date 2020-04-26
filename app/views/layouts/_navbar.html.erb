@@ -3,21 +3,35 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <a class="navbar-brand" href="#">Hidden brand</a>
+    <a class="navbar-brand" href="<%=root_path%>">Researchly</a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
+      <% if logged_in? %>
+        <li class="nav-item active">
+            <a class="nav-link" href="<%=research_goals_path%>">All Research Goals <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="<%=resources_path%>">All Resources</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="<%=journals_path%>">All Journals</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="<%=new_journal_path%>">Add A Journal</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="<%=logout_path%>"data-method="delete">Logout</a>
+        </li>
+      <% else %>
+        <li class="nav-item">
+            <a class="nav-link" href="<%=signup_path%>">Sign Up</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="<%=login_path%>">Log In</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/auth/google_oauth2">Log In with Google</a>
+        </li>
+      <% end %>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>
