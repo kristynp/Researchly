@@ -5,34 +5,36 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>  </head>
 
   <body>
-
-    <div> 
-      <% if logged_in? %>
-        <%= link_to "All Research Goals", research_goals_path %> | 
-        <%= link_to "Add a Research Goal", new_research_goal_path %> | 
-        <%= link_to "All Resources", resources_path %> |
-        <%= link_to "All Journals", journals_path %> |
-        <%= link_to "Add a Journal", new_journal_path %> |
-        <%= link_to "Logout", logout_path, method: "delete"  %>
-      <% else %>
-        <%= link_to "Sign Up", signup_path %> |
-        <%= link_to "Log In", login_path %> |
-        <%= link_to "Log In With Google", '/auth/google_oauth2' %>
-      <% end %>
-    </div>
-
-    <div>
-      <%= flash[:message] if flash[:message]%>
-      <%= @error %>
-    </div>
+    <div class="container">
+    <%= render '/layouts/navbar' %>
+      <div> 
+        <% if logged_in? %>
+          <%= link_to "All Research Goals", research_goals_path %> | 
+          <%= link_to "Add a Research Goal", new_research_goal_path %> | 
+          <%= link_to "All Resources", resources_path %> |
+          <%= link_to "All Journals", journals_path %> |
+          <%= link_to "Add a Journal", new_journal_path %> |
+          <%= link_to "Logout", logout_path, method: "delete"  %>
+        <% else %>
+          <%= link_to "Sign Up", signup_path %> |
+          <%= link_to "Log In", login_path %> |
+          <%= link_to "Log In With Google", '/auth/google_oauth2' %>
+        <% end %>
+      </div>
     
 
-    <%= yield %>
+      <div>
+        <%= flash[:message] if flash[:message]%>
+        <%= @error %>
+      </div>
+      
 
+      <%= yield %>
+  </div>
   </body>
 
 </html>

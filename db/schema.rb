@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_04_24_170437) do
 
   create_table "resources", force: :cascade do |t|
     t.string "title"
+    t.string "journal"
     t.integer "research_goal_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
