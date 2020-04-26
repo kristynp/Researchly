@@ -6,16 +6,5 @@
 <%= @research_goal.notes %>
 
 <%= form_for(@research_goal) do |f| %>
-  
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-
-  <%= f.label :description %>
-  <%= f.text_field :description %><br>
-
-  <%= f.label :notes %>
-  <%= f.text_field :notes %><br>
-
-  <%= f.submit %>
-
+    <%= render 'form', f: f %>
 <% end %>

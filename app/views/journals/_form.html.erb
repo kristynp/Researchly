@@ -1,0 +1,10 @@
+
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :website %>
+    <%= f.text_field :website %><br>
+
+    <%= f.label :open_source %>
+    <%= f.select :open_source, [['Yes', true], ['No', false], ], { :include_blank => true } %><br>
+    <br>

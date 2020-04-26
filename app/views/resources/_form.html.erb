@@ -1,0 +1,17 @@
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <br>
+
+    <%= f.label :key_topics %>
+    <%= f.text_field :key_topics %><br><br>
+
+    <%= f.label :journal_id %>
+    <br>
+    <label for="journal_id">Choose existing journal: </label>
+    <%= f.collection_select :journal_id, Journal.all, :id, :name, :prompt => '- Select -' %>
+
+    <%= f.hidden_field :research_goal_id %>
+    <br>
+  
+  <%= f.submit %>
+   

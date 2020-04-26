@@ -1,8 +1,7 @@
 class JournalsController < ApplicationController
 
   def index
-    @journals = Journal.all.most_resources 
-
+    @journals = Journal.all.most_resources
   end
 
   def new 

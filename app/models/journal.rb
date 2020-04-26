@@ -6,4 +6,13 @@ class Journal < ApplicationRecord
   validates :website, presence: true
   validates :website, url: true
 
+  def open_source?
+    if self.open_source == true 
+      'Yes'
+    elsif self.open_source == false 
+      'No' 
+    else
+      'Unknown'
+    end
+  end
 end
