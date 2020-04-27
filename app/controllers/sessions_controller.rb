@@ -20,12 +20,10 @@ class SessionsController < ApplicationController
     #find_or_create a user using the attributes in auth
     @user = User.find_or_create_by(email: auth["info"]["email"])
     @user.password = SecureRandom.hex(12)
-    
     if @user.save 
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      binding.pry
       flash[:message] = "Incorrect login info. Please try again."
       render root_path 
     end

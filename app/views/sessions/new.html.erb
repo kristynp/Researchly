@@ -1,13 +1,16 @@
 <h1>Log In</h1>
-
-<%= form_for :user do |f| %>
-  <%= f.label :user_name %>
-  <%= f.text_field :user_name %>
-  <br>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <br>
-
-  <%= f.submit "Login" %>
-   
-<% end %>
+<div>
+  <%= form_for :user do |f| %>
+    <div class="container center" class="form-group" >
+      <div>
+      <%= f.label :user_name%>
+      <%= f.text_field :user_name, class: "form-control" %>
+      </div>
+      <div>
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control" %>
+      </div>
+      <%= f.submit "Login" %>
+    </div>
+  <% end %>
+</div>
