@@ -1,18 +1,31 @@
-    
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <br>
+ 
+<div>
+  <%= form_for ([@research_goal, @resource]) do |f| %>
+    <div class="container center" class="form-group" >
+      <div>
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :key_topics %>
+        <%= f.text_field :key_topics, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :website %>
+        <%= f.text_field :website, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <label for="journal_id">Choose existing journal: </label>
+        <%= f.collection_select :journal_id, Journal.all, :id, :name, :prompt => '- Select -' %>
+        <%= f.hidden_field :research_goal_id %>
+      </div>
+      <div class="form-group">
+        <%= f.label :notes %>
+        <%= f.text_area :notes, class: "form-control" %>
+      </div>
+      <%= f.submit %>
+    </div>
+  <% end %>
 
-    <%= f.label :key_topics %>
-    <%= f.text_field :key_topics %><br><br>
 
-    <%= f.label :journal_id %>
-    <br>
-    <label for="journal_id">Choose existing journal: </label>
-    <%= f.collection_select :journal_id, Journal.all, :id, :name, :prompt => '- Select -' %>
-
-    <%= f.hidden_field :research_goal_id %>
-    <br>
-  
-  <%= f.submit %>
-   
+</div>

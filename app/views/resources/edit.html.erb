@@ -1,16 +1,11 @@
 <% if @research_goal %>
   <h1>Edit Resource for the <%= @research_goal.name %> goal </h1>
 <% else %>
-  <h1>Edit Resource</h1>
+  <h1>Edit <%= @resource.title %></h1>
 <% end %>
-
-<%# move this to a partial %>
-<h1>Edit <%= @resource.title %></h1>
 
 <%= render '/errors/error', object: @resource %>
 
 <%= render 'display' %>
 
-<%= form_for ([@research_goal, @resource]) do |f| %>
-    <%= render 'form', f: f %>  
-<% end %>
+<%= render 'form' %>  

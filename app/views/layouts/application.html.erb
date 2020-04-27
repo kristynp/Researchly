@@ -10,23 +10,9 @@
 
   <body>
     <div class="container">
-    <%= render '/layouts/navbar' %>
-      <div> 
-        <% if logged_in? %>
-          <%= link_to "All Research Goals", research_goals_path %> | 
-          <%= link_to "Add a Research Goal", new_research_goal_path %> | 
-          <%= link_to "All Resources", resources_path %> |
-          <%= link_to "All Journals", journals_path %> |
-          <%= link_to "Add a Journal", new_journal_path %> |
-          <%= link_to "Logout", logout_path, method: "delete"  %>
-        <% else %>
-          <%= link_to "Sign Up", signup_path %> |
-          <%= link_to "Log In", login_path %> |
-          <%= link_to "Log In With Google", '/auth/google_oauth2' %>
-        <% end %>
-      </div>
-    
+      <%= render '/layouts/navbar' %>
 
+  
       <div>
         <%= flash[:message] if flash[:message]%>
         <%= @error %>
@@ -34,7 +20,7 @@
       
 
       <%= yield %>
-  </div>
+    </div>
   </body>
 
 </html>

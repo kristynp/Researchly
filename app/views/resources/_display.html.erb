@@ -1,2 +1,8 @@
 <p>Part of the <%= @resource.research_goal.name %> research goal</p>
 <p>Key topics: <%=@resource.key_topics%></p>
+<% if !@resource.website.empty? %>
+  <p>URL: <%= link_to "Go there", @resource.website%></p>
+<% end %>
+
+<h2>Notes</h2>
+<%= @resource.notes %>
