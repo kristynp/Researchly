@@ -1,11 +1,20 @@
-  
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-
-  <%= f.label :description %>
-  <%= f.text_field :description %><br>
-
-  <%= f.label :notes %>
-  <%= f.text_field :notes %><br>
-
-  <%= f.submit %>
+<div>
+  <%= form_for(@research_goal) do |f| %>
+    <div class="container center" class="form-group" >
+      <div>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %><br>
+      </div>
+      <div>
+        <%= f.label :description %>
+        <%= f.text_field :description, class: "form-control" %><br>
+      </div>
+      <div>
+        <%= f.label :notes %>
+        <%= f.text_field :notes, class: "form-control" %><br>
+      </div>
+        <%= f.submit %>
+    </div>
+    <% end %>
+</div>
+   
