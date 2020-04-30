@@ -32,6 +32,10 @@ class JournalsController < ApplicationController
     end
   end
 
+  def show
+    @journal = Journal.find_by(id: params[:id]) 
+  end
+
   private 
   
   def journal_params

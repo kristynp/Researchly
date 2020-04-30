@@ -1,0 +1,20 @@
+<h1><%= @journal.name %></h1>
+<%= link_to "edit", "/journals/#{@journal.id}/edit"%><br><br>
+<h4>Website: <%= link_to @journal.website, @journal.website if @journal.website %></h4><br>
+<h4>Open source: <%= @journal.open_source? %></h4><br>
+
+<h4>Featured In:</h4>
+
+<% if @journal.research_goals %>
+<ul>
+  <% @journal.research_goals.each do |research_goal| %>
+    <li><%= research_goal.name %></li>
+  <% end %>
+</ul>
+<% end %>
+
+
+
+
+
+ 

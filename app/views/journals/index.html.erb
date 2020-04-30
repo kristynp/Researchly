@@ -3,6 +3,6 @@
 
 <ul>
 <% @journals.each do |journal| %>
-  <li><%= journal.name %> | <%= link_to journal.website, journal.website if journal.website %> | Open source: <%= journal.open_source? %> | <%= link_to "edit", "/journals/#{journal.id}/edit"%></li>
+  <li><%=link_to journal.name, journal_path(journal) %></li>
 <% end %>
 </ul>
