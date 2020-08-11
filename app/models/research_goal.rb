@@ -2,6 +2,7 @@ class ResearchGoal < ApplicationRecord
   belongs_to :user
   has_many :resources
   has_many :journals, through: :resources
+  has_many :research_goal_notes
 
   validates :name, presence: true
   validates :description, presence: true
