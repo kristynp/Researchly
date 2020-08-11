@@ -17,6 +17,7 @@ class ResearchGoalsController < ApplicationController
     @research_goal = current_user.research_goals.build(research_goal_params)
     if @research_goal.save 
       redirect_to research_goals_path
+      # new http request
     else 
       render :new 
     end 
@@ -42,6 +43,8 @@ class ResearchGoalsController < ApplicationController
   end
 
   private 
+
+  #could make private method in this class to set research goal to make more DRY
 
   def research_goal_params
     params.require(:research_goal).permit(:name, :description, :notes) 

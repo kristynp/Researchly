@@ -5,7 +5,6 @@ class Resource < ApplicationRecord
   validates :title, presence: true
   validates :research_goal_id, presence: true
 
-
   def journal_attributes=(journal_attributes)
     self.journal = Journal.where(:name => journal_attributes[:name]).first_or_create do |t|
       t.name = journal_attributes[:name]

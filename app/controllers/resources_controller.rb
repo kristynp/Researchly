@@ -3,7 +3,7 @@ class ResourcesController < ApplicationController
 
   def index
     if params[:research_goal_id] && @research_goal = ResearchGoal.find_by_id(params[:research_goal_id]) 
-      #if it's nested and we find the research goal
+      #if it's nested and the research goal is found
       @resources = @research_goal.resources
     else
       @error = "That research goal does not exist" if params[:research_goal_id]

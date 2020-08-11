@@ -23,7 +23,6 @@ class JournalsController < ApplicationController
   end
 
   def update
-
     @journal = Journal.find_by(id: params[:id])
     if @journal.update(journal_params)
       redirect_to journals_path
