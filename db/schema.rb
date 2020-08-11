@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_24_170437) do
+ActiveRecord::Schema.define(version: 2020_08_11_173214) do
 
   create_table "journals", force: :cascade do |t|
     t.string "name"
     t.string "website"
     t.boolean "open_source"
+  end
+
+  create_table "research_goal_notes", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.integer "research_goal_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "research_goals", force: :cascade do |t|
