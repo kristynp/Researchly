@@ -1,4 +1,5 @@
 <p><%= @research_goal.description %></p>
 
 <h2>Notes</h2>
+<%= link_to 'Add a Note for this research goal', research_goal_notes_path(@research_goal) %>
 <%= @research_goal.notes %>
