@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :research_goals do 
     resources :resources, only: [:new, :create, :index]
+    resources :notes, only: [:new, :create, :index]
   end 
 
   resources :users do
