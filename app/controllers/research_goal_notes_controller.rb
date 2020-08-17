@@ -13,7 +13,7 @@ class ResearchGoalNotesController < ApplicationController
   end
 
   def create 
-
+    
   end
 
   private 

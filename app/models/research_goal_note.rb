@@ -1,4 +1,4 @@
-class ResearchGoalNotes < ApplicationRecord
+class ResearchGoalNote < ApplicationRecord
   belongs_to :research_goal
 
   validates :title, presence: true
