@@ -1,4 +1,10 @@
 <p><%= @research_goal.description %></p>
 
 <h2>Notes</h2>
-<%= @research_goal.notes %>
+<%= link_to 'Add a note for this research goal', new_research_goal_research_goal_note_path(@research_goal) %><br><br>
+
+<div>
+  <% @research_goal.research_goal_notes.each do |note| %>
+    <li><%= note.title %> -- <%= note.content %></li>
+  <% end %>
+</div>

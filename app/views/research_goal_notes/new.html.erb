@@ -1,0 +1,10 @@
+<% if @research_goal %>
+  <h1>Add a new note for the <%= @research_goal.name %> Goal </h1>
+  <%= render 'form' %>
+<% else %>
+  <h1>Research Goal not found</h1>
+<% end %>
+
+<%# <%= render '/errors/error', object: @resource %>
+
+
