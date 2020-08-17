@@ -12,8 +12,19 @@ class ResearchGoalNotesController < ApplicationController
     end 
   end
 
-  def create 
-    
+  def create
+    @research_goal = ResearchGoal.find_by_id(params[:research_goal_id])
+    if @research_goal  
+      @research_goal_note = @research_goal.research_goal_notes.build(research_goal_note_params)
+    else
+      @error = "Please create a new research goal note from the research goal page it will be added to."
+      redirect_to research_goals_path
+    end
+    if @research_goal_note.save
+      redirect_to research_goal_path(@research_goal)
+    else
+      render :new
+    end 
   end
 
   private 
