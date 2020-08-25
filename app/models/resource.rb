@@ -1,6 +1,7 @@
 class Resource < ApplicationRecord
   belongs_to :research_goal
   belongs_to :journal
+  has_many :resource_notes
 
   validates :title, presence: true
   validates :research_goal_id, presence: true
