@@ -1,0 +1,2 @@
+class ResourceNote < ApplicationRecord
+end
