@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :resource_notes
   root 'sessions#home'
 
   get '/signup' => 'users#new'

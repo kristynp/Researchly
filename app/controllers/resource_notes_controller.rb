@@ -1,0 +1,2 @@
+class ResourceNotesController < ApplicationController
+end
