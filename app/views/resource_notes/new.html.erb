@@ -1,0 +1,10 @@
+<% if @resource %>
+  <h1>Add a new note for the <%= @resource.title %> resource </h1>
+  <%= render 'form' %>
+<% else %>
+  <h1>Resource not found</h1>
+<% end %>
+
+<%# <%= render '/errors/error', object: @resource %>
+
+

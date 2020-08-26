@@ -21,13 +21,17 @@ Rails.application.routes.draw do
     resources :research_goal_notes, only: [:new, :create, :index]
   end 
 
+  resources :resources do 
+    resources :resource_notes, only: [:new, :create]
+  end
+
   resources :users do
     resources :research_goals, only: [:new, :create, :index] 
   end
   
   resources :resources
   resources :journals
- 
+  resources :resource_notes
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,16 @@
+ 
+<div>
+  <%= form_for ([@resource, @resource_note]) do |f| %>
+    <div class="container center" class="form-group" >
+      <div>
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :content %>
+        <%= f.text_field :content, class: "form-control" %>
+      </div>
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

@@ -19,10 +19,6 @@
         <%= f.collection_select :journal_id, Journal.all, :id, :name, :prompt => '- Select -' %>
         <%= f.hidden_field :research_goal_id %>
       </div>
-      <div class="form-group">
-        <%= f.label :notes %>
-        <%= f.text_area :notes, class: "form-control" %>
-      </div>
       <%= f.submit %>
     </div>
   <% end %>
