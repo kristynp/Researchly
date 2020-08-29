@@ -4,7 +4,6 @@ class ResearchGoalNotesController < ApplicationController
   def new
     if params[:research_goal_id] && @research_goal = ResearchGoal.find_by_id(params[:research_goal_id]) 
       @research_goal = ResearchGoal.find_by_id(params[:research_goal_id]) 
-      #binding.pry
       @research_goal_note = @research_goal.research_goal_notes.build
     else
       @error = "That research goal does not exist" if params[:research_goal_id]
@@ -28,10 +27,11 @@ class ResearchGoalNotesController < ApplicationController
   end
 
   def edit
-    # @research_goal = ResearchGoal.find_by(id: params[:id])
-    # @current_user = current_user
-    # @research_goal_note = 
+    @research_goal = ResearchGoal.find_by(id: params[:research_goal_id])
+    @research_goal_note = ResearchGoalNote.find_by(id: params[:id])
   end
+
+  #<ActionController::Parameters {"controller"=>"research_goal_notes", "action"=>"edit", "research_goal_id"=>"2", "id"=>"1"} permitted: false>
 
   private 
   
