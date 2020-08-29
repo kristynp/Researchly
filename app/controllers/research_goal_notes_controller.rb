@@ -27,6 +27,12 @@ class ResearchGoalNotesController < ApplicationController
     end 
   end
 
+  def edit
+    # @research_goal = ResearchGoal.find_by(id: params[:id])
+    # @current_user = current_user
+    # @research_goal_note = 
+  end
+
   private 
   
   def research_goal_note_params

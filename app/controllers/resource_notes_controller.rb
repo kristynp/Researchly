@@ -26,6 +26,8 @@ class ResourceNotesController < ApplicationController
     end 
   end
 
+  
+
   private 
   
   def resource_note_params
