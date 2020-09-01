@@ -26,6 +26,11 @@ class ResourceNotesController < ApplicationController
     end 
   end
 
+  def edit
+    @resource = Resource.find_by(id: params[:resource_id])
+    @resource_note = ResourceNote.find_by(id: params[:id])
+  end
+
   
 
   private 
