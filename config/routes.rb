@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end 
 
   resources :resources do 
-    resources :resource_notes, only: [:new, :create]
+    resources :resource_notes
   end
 
   resources :users do
