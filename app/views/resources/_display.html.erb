@@ -10,6 +10,6 @@
 
 <div>
   <% @resource.resource_notes.each do |note| %>
-    <li><%= note.title %> -- <%= note.content %></li>
+    <li><%= note.title %> -- <%= note.content %> <%=link_to 'edit', edit_resource_resource_note_path(note)%></li>
   <% end %>
 </div>

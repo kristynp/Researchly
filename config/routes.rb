@@ -18,11 +18,11 @@ Rails.application.routes.draw do
 
   resources :research_goals do 
     resources :resources, only: [:new, :create, :index]
-    resources :research_goal_notes, only: [:new, :create, :index]
+    resources :research_goal_notes
   end 
 
   resources :resources do 
-    resources :resource_notes, only: [:new, :create]
+    resources :resource_notes
   end
 
   resources :users do

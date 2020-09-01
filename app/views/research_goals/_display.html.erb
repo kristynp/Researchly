@@ -5,6 +5,6 @@
 
 <div>
   <% @research_goal.research_goal_notes.each do |note| %>
-    <li><%= note.title %> -- <%= note.content %></li>
+    <li><%= note.title %> -- <%= note.content %> <%=link_to 'edit', edit_research_goal_research_goal_note_path(note)%></li>
   <% end %>
 </div>
