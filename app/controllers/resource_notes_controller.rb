@@ -31,6 +31,17 @@ class ResourceNotesController < ApplicationController
     @resource_note = ResourceNote.find_by(id: params[:id])
   end
 
+  def update
+    @resource = Resource.find_by(id: params[:resource_id])
+    @resource_note = ResourceNote.find_by(id: params[:id])
+
+    if @resource_note.update(resource_note_params)
+      redirect_to @resource
+    else 
+      render :edit 
+    end
+  end
+
   
 
   private 

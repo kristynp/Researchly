@@ -31,6 +31,17 @@ class ResearchGoalNotesController < ApplicationController
     @research_goal_note = ResearchGoalNote.find_by(id: params[:id])
   end
 
+  def update
+    @research_goal = ResearchGoal.find_by(id: params[:research_goal_id])
+    @research_goal_note = ResearchGoalNote.find_by(id: params[:id])
+
+    if @research_goal_note.update(research_goal_note_params)
+      redirect_to @research_goal
+    else 
+      render :edit 
+    end
+  end
+
   #<ActionController::Parameters {"controller"=>"research_goal_notes", "action"=>"edit", "research_goal_id"=>"2", "id"=>"1"} permitted: false>
 
   private 
