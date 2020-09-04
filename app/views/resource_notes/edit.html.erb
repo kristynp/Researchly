@@ -1,7 +1,8 @@
-<br><h3>Edit <%= @resource_note.title %> note</h3><br><br>
+<br><h3>Edit <%= @resource_note.title %> note</h3>
+<%= link_to "Delete Note", resource_note_path(@resource, @resource_note), data: { method: :delete } %><br><br>
 
 <%= render '/errors/error', object: @resource_note %>
 
 <%= render 'display'%>
 
-<%= render 'form' %>
+<%= render 'form' %> 
