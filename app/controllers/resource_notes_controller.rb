@@ -42,6 +42,19 @@ class ResourceNotesController < ApplicationController
     end
   end
 
+  def destroy
+    @resource = Resource.find_by(id: params[:id]) 
+    @resource_note = ResourceNote.find_by(id: params[:format]) #why is this under format in params?
+
+    if @resource_note 
+      @resource_note.destroy
+    else
+      @error = "Resource not found"
+    end
+
+    redirect_to resource_path(@resource)
+  end
+
   
 
   private 

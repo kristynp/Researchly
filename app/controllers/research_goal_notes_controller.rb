@@ -42,7 +42,18 @@ class ResearchGoalNotesController < ApplicationController
     end
   end
 
-  #<ActionController::Parameters {"controller"=>"research_goal_notes", "action"=>"edit", "research_goal_id"=>"2", "id"=>"1"} permitted: false>
+  def destroy
+    @research_goal = ResearchGoal.find_by(id: params[:research_goal_id]) 
+    @research_goal_note = ResearchGoalNote.find_by(id: params[:id])
+
+    if @research_goal_note 
+      @research_goal_note.destroy
+    else
+      @error = "Note not found"
+    end
+
+    redirect_to research_goal_path(@research_goal)
+  end
 
   private 
   
