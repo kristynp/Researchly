@@ -1,4 +1,8 @@
-<h1>Resources</h1>
+<h1>Resources
+  <% if @research_goal %>
+   for <%= @research_goal.name%>
+  <% end %>
+</h1>
 
 <% @resources.all.each do |resource| %>
   <li><%= link_to resource.title, resource_path(resource) %> -- <%= resource.key_topics %></li>
