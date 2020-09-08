@@ -42,6 +42,15 @@ class ResearchGoalsController < ApplicationController
     end
   end
 
+  def destroy
+    @research_goal = ResearchGoal.find_by(id: params[:id])
+    @research_goal.resources.each do |resource| 
+      resource.destroy
+    end
+    @research_goal.destroy 
+    redirect_to research_goals_path  
+  end
+
   private 
 
   #could make private method in this class to set research goal to make more DRY

@@ -2,7 +2,7 @@ class ResourcesController < ApplicationController
   before_action :redirect_if_not_logged_in 
 
   def index
-    if params[:research_goal_id] && @research_goal = ResearchGoal.find_by_id(params[:research_goal_id]) 
+    if params[:research_goal_id] && @research_goal = ResearchGoal.find_by_id(params[:research_goal_id])
       #if it's nested and the research goal is found
       @resources = @research_goal.resources
     else
