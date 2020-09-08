@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback' => 'sessions#omnilogin'
 
   resources :research_goals do 
-    resources :resources, only: [:new, :create, :index]
+    resources :resources
     resources :research_goal_notes
   end 
 
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resources :research_goals, only: [:new, :create, :index] 
+    resources :research_goals 
   end
   
   resources :resources
