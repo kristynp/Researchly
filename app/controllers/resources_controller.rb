@@ -30,7 +30,7 @@ class ResourcesController < ApplicationController
       redirect_to research_goals_path
     end
     if @resource.save
-      redirect_to resources_path 
+      redirect_to research_goal_resources_path(@research_goal) 
     else
       render :new
     end 
