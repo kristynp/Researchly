@@ -1,8 +1,15 @@
-<p>Part of the <%= @resource.research_goal.name %> research goal</p>
-<p>Key topics: <%=@resource.key_topics%></p>
-<% if !@resource.website.empty? %>
-  <p>URL: <%= link_to "Go there", @resource.website%></p>
-<% end %>
+<section>
+  <% if !@resource.website.empty? %>
+    <h5>Publish Source</h5>
+    Paper published at <%= link_to @resource.journal.name, @resource.journal.website %> |
+    <%= link_to 'Go directly to resource on publisher site', @resource.website %> 
+  <% end %>
+</section><br>
+<section>
+  <h5>Resource Information</h5>
+  <p>Part of the <%= @resource.research_goal.name %> research goal</p>
+  <p>Key topics: <%=@resource.key_topics%></p>
+</section>
 
 <h2>Notes</h2>
 
