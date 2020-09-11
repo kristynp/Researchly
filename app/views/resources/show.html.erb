@@ -1,9 +1,5 @@
 <h1><%= @resource.title %></h1>
 <%= link_to 'Edit this resource', edit_resource_path(@resource) %> |
-Paper published at <%= link_to @resource.journal.name, @resource.journal.website %> 
-
-<% if !@resource.website == nil %>
-   | Find resource <%= link_to "Here", @resource.website %>
-<% end %>
+<%= link_to 'Delete this resource',  resource_path(@resource), data: { method: :delete } %><br><br>
 
 <%= render 'display'%>
