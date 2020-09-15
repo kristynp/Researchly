@@ -1,19 +1,19 @@
 
 <div>
   <%= form_for @journal do |f| %>
-    <div class="container center" class="form-group" >
+    <form class="container center" class="form-group" >
       <div>
-      <%= f.label :name %>
-      <%= f.text_field :name, class: "form-control" %><br>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %><br>
       </div>
-      <%= f.label :website %>
-      <%= f.text_field :website, class: "form-control" %><br>
+        <%= f.label :website %>
+        <%= f.text_field :website, class: "form-control" %><br>
       <div>
-      <%= f.label :open_source %>
-      <%= f.select :open_source, [['Yes', true], ['No', false], ], { :include_blank => true }, class: "form-control" %><br>
+        <%= f.label :open_source %>
+        <%= f.select :open_source, [['Yes', true], ['No', false], ], { :include_blank => true }, class: "form-control" %><br>
       </div>
       <%= f.submit %>
-    </div>
+    </form>
   <% end %>
 </div>
 

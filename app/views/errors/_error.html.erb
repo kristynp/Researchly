@@ -1,14 +1,15 @@
 <% if object.errors.any? %>
-  <div id="error_explanation">
-    <h2>
+
+  <section id="error_explanation">
+    <h2>Errors</h2>
+    <h3>
       <%= pluralize(object.errors.count, "error") %>
       prohibited from saving for the following reasons:
-    </h2>
- 
+    </h3>
     <ul>
     <% object.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>
-  </div>
+  </section>
 <% end %>
