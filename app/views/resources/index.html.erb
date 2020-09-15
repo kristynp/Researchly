@@ -1,6 +1,7 @@
 <% if @research_goal %>
   <h1>Resources for <%= @research_goal.name%> </h1>
-  <%= link_to 'Add resource for this goal', new_research_goal_resource_path(@research_goal)%><br><br>
+  <%= link_to 'Add resource for this goal', new_research_goal_resource_path(@research_goal)%> | 
+  <%= link_to 'Back to research goal', research_goal_path(@research_goal)%><br><br>
 <% else %>
   <h1>Resources</h1>
 <% end %>
