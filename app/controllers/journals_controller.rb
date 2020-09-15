@@ -35,6 +35,16 @@ class JournalsController < ApplicationController
     @journal = Journal.find_by(id: params[:id]) 
   end
 
+  def destroy
+    @journal = Journal.find_by(id: params[:id]) 
+    if @journal 
+      @journal.destroy 
+    else
+      @error = "Journal not found and not destroyed"
+    end
+    redirect_to journals_path()
+  end 
+
   private 
   
   def journal_params
