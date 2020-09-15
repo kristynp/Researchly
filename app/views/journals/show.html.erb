@@ -1,5 +1,5 @@
-<h1><%= @journal.name %></h1>
-<%= link_to "edit", "/journals/#{@journal.id}/edit"%><br><br>
+<h1><%= @journal.name %></h1>  
+<nav><%= link_to "Edit Journal", "/journals/#{@journal.id}/edit"%> | <%= link_to "Delete Journal", journal_path(@journal), data: { method: :delete } %></nav><br><br>
 <h4>Website: <%= link_to @journal.website, @journal.website if @journal.website %></h4><br>
 <h4>Open source: <%= @journal.open_source? %></h4><br>
 
