@@ -1,5 +1,6 @@
 class ResearchGoalNotesController < ApplicationController
   before_action :redirect_if_not_logged_in
+  before_action :set_research_goal, except: [:index, :new]
 
   def new
     if params[:research_goal_id] && @research_goal = ResearchGoal.find_by_id(params[:research_goal_id]) 
@@ -12,7 +13,6 @@ class ResearchGoalNotesController < ApplicationController
   end
 
   def create
-    @research_goal = ResearchGoal.find_by_id(params[:research_goal_id])
     if @research_goal  
       @research_goal_note = @research_goal.research_goal_notes.build(research_goal_note_params)
     else
@@ -27,14 +27,11 @@ class ResearchGoalNotesController < ApplicationController
   end
 
   def edit
-    @research_goal = ResearchGoal.find_by(id: params[:research_goal_id])
     @research_goal_note = ResearchGoalNote.find_by(id: params[:id])
   end
 
   def update
-    @research_goal = ResearchGoal.find_by(id: params[:research_goal_id])
     @research_goal_note = ResearchGoalNote.find_by(id: params[:id])
-
     if @research_goal_note.update(research_goal_note_params)
       redirect_to @research_goal
     else 
@@ -43,19 +40,20 @@ class ResearchGoalNotesController < ApplicationController
   end
 
   def destroy
-    @research_goal = ResearchGoal.find_by(id: params[:research_goal_id]) 
     @research_goal_note = ResearchGoalNote.find_by(id: params[:id])
-
     if @research_goal_note 
       @research_goal_note.destroy
     else
       @error = "Note not found"
     end
-
     redirect_to research_goal_path(@research_goal)
   end
 
   private 
+
+  def set_research_goal 
+    @research_goal = ResearchGoal.find_by(id: params[:research_goal_id])
+  end
   
   def research_goal_note_params
     params.require(:research_goal_note).permit(:title, :content, :research_goal_id) 
