@@ -1,4 +1,5 @@
 class JournalsController < ApplicationController
+  before_action :set_journal, only: [:edit, :update, :show, :destroy]
 
   def index
     @journals = Journal.all.most_resources
@@ -18,12 +19,10 @@ class JournalsController < ApplicationController
   end
 
   def edit
-    @journal = Journal.find_by(id: params[:id])
     @current_user = current_user
   end
 
   def update
-    @journal = Journal.find_by(id: params[:id])
     if @journal.update(journal_params)
       redirect_to journals_path
     else
@@ -31,12 +30,7 @@ class JournalsController < ApplicationController
     end
   end
 
-  def show
-    @journal = Journal.find_by(id: params[:id]) 
-  end
-
   def destroy
-    @journal = Journal.find_by(id: params[:id]) 
     if @journal 
       @journal.destroy 
     else
@@ -46,6 +40,10 @@ class JournalsController < ApplicationController
   end 
 
   private 
+
+  def set_journal
+    @journal = Journal.find_by(id: params[:id])
+  end
   
   def journal_params
     params.require(:journal).permit(:name, :website, :open_source)
