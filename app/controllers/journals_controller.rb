@@ -5,6 +5,10 @@ class JournalsController < ApplicationController
     @journals = Journal.all.most_resources
   end
 
+  def show 
+    redirect_to journals_path if !@journal
+  end
+
   def new 
     @journal = Journal.new
   end
