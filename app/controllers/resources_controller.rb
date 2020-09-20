@@ -1,8 +1,9 @@
 class ResourcesController < ApplicationController
   before_action :redirect_if_not_logged_in 
+  before_action :set_resource, only: [:update, :edit, :show]
 
   def index
-    if params[:research_goal_id] && @research_goal = ResearchGoal.find_by_id(params[:research_goal_id])
+    if params[:research_goal_id] && set_research_goal
       #if it's nested and the research goal is found
       @resources = @research_goal.resources
     else
@@ -12,8 +13,8 @@ class ResourcesController < ApplicationController
   end
 
   def new
-    if params[:research_goal_id] && @research_goal = ResearchGoal.find_by_id(params[:research_goal_id]) 
-      @research_goal = ResearchGoal.find_by_id(params[:research_goal_id]) 
+    if params[:research_goal_id] && set_research_goal
+      set_research_goal
       @resource = @research_goal.resources.build
     else
       @error = "That research goal does not exist" if params[:research_goal_id]
@@ -22,7 +23,7 @@ class ResourcesController < ApplicationController
   end
 
   def create
-    @research_goal = ResearchGoal.find_by_id(params[:research_goal_id])
+    set_research_goal
     if @research_goal  
       @resource = @research_goal.resources.build(resource_params)
     else
@@ -36,17 +37,11 @@ class ResourcesController < ApplicationController
     end 
   end
 
-  def show
-    @resource = Resource.find_by(id: params[:id]) 
-  end
-
   def edit
-    @resource = Resource.find_by(id: params[:id])
-    @current_user = current_user
+    current_user
   end
 
   def update
-    @resource = Resource.find_by(id: params[:id])
     if @resource.update(resource_params)
       redirect_to @resource
     else 
@@ -54,7 +49,16 @@ class ResourcesController < ApplicationController
     end
   end
 
-  private 
+
+  private
+
+  def set_resource
+    @resource = Resource.find_by(id: params[:id])
+  end
+
+  def set_research_goal 
+    @research_goal = ResearchGoal.find_by(id: params[:research_goal_id])
+  end
   
   def resource_params
     params.require(:resource).permit(:title, :key_topics, :research_goal_id, :journal_id, :website, :notes) 
