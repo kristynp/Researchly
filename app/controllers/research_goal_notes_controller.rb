@@ -4,7 +4,7 @@ class ResearchGoalNotesController < ApplicationController
   before_action :set_research_goal_note, only: [:edit, :update, :destroy]
 
   def new
-    if params[:research_goal_id] && @research_goal = ResearchGoal.find_by_id(params[:research_goal_id]) 
+    if params[:research_goal_id] && set_research_goal 
       @research_goal_note = @research_goal.research_goal_notes.build
     else
       @error = "That research goal does not exist" if params[:research_goal_id]

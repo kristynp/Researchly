@@ -4,7 +4,7 @@ class ResourceNotesController < ApplicationController
   before_action :set_resource_note, only: [:edit, :update]
 
   def new
-    if params[:resource_id] && @resource = Resource.find_by_id(params[:resource_id]) 
+    if params[:resource_id] && set_resource 
       @resource_note = @resource.resource_notes.build
     else
       @error = "That resource does not exist" if params[:resource_id]
